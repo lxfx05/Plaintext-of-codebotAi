@@ -1,8 +1,6 @@
-## Tree view of Chatbot 
-```
-# 📁 Offline Dev Chatbot — Project Tree View
+## Tree view of Chatbot
 
-```plaintext
+```
 offline-dev-chatbot/
 ├── README.md                       # General description and setup guide
 ├── LICENSE                         # Project license
