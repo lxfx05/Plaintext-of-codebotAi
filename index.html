@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Offline Dev Chatbot — Tree View</title>
+<title>Offline Dev Chatbot — Project Tree View</title>
 <style>
+  /* ====== BASE ====== */
   body {
     background-color: #0f172a;
     color: #e2e8f0;
@@ -16,98 +17,111 @@
     margin: 0;
     padding: 40px;
   }
+
+  /* ====== BOX ====== */
   .box {
     background-color: #1e293b;
     border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    padding: 30px 40px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
     width: 90%;
     max-width: 900px;
     overflow-x: auto;
   }
+
+  h1 {
+    color: #60a5fa;
+    font-size: 22px;
+    margin-bottom: 25px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  /* ====== TREE TEXT ====== */
   pre {
     color: #cbd5e1;
     font-size: 14px;
     line-height: 1.6;
     white-space: pre;
+    margin: 0;
   }
-  h1 {
-    color: #60a5fa;
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
+
+  /* Evidenzia nomi e cartelle */
+  .folder { color: #7dd3fc; }
+  .file   { color: #f1f5f9; }
+  .comment { color: #64748b; font-style: italic; }
 </style>
 </head>
 <body>
   <div class="box">
     <h1>📁 Offline Dev Chatbot — Project Tree View</h1>
 <pre>
-offline-dev-chatbot/
-├── README.md
-├── LICENSE
-├── .gitignore
-├── requirements.txt
-├── Dockerfile
-├── setup.sh
+<span class="folder">offline-dev-chatbot/</span>
+├── <span class="file">README.md</span>
+├── <span class="file">LICENSE</span>
+├── <span class="file">.gitignore</span>
+├── <span class="file">requirements.txt</span>
+├── <span class="file">Dockerfile</span>
+├── <span class="file">setup.sh</span>
 │
-├── backend/
-│   ├── app.py                # FastAPI server (entrypoint)
-│   ├── config.py             # Configurazioni di base
-│   ├── local_llm.py          # Integrazione modello LLM locale
+├── <span class="folder">backend/</span>
+│   ├── <span class="file">app.py</span>                <span class="comment"># FastAPI server (entrypoint)</span>
+│   ├── <span class="file">config.py</span>             <span class="comment"># Configurazioni di base</span>
+│   ├── <span class="file">local_llm.py</span>          <span class="comment"># Integrazione modello LLM locale</span>
 │   │
-│   ├── prompts/
-│   │   ├── system_prompt.txt
-│   │   └── templates/
-│   │       ├── clarify_prompt.txt
-│   │       ├── generator_prompt.txt
-│   │       └── code_explainer_prompt.txt
+│   ├── <span class="folder">prompts/</span>
+│   │   ├── <span class="file">system_prompt.txt</span>
+│   │   └── <span class="folder">templates/</span>
+│   │       ├── <span class="file">clarify_prompt.txt</span>
+│   │       ├── <span class="file">generator_prompt.txt</span>
+│   │       └── <span class="file">code_explainer_prompt.txt</span>
 │   │
-│   ├── code_check/
-│   │   ├── python_checker.py
-│   │   ├── java_checker.py
-│   │   ├── cpp_checker.py
-│   │   ├── js_checker.py
-│   │   ├── go_checker.py
-│   │   └── sql_checker.py
+│   ├── <span class="folder">code_check/</span>
+│   │   ├── <span class="file">python_checker.py</span>
+│   │   ├── <span class="file">java_checker.py</span>
+│   │   ├── <span class="file">cpp_checker.py</span>
+│   │   ├── <span class="file">js_checker.py</span>
+│   │   ├── <span class="file">go_checker.py</span>
+│   │   └── <span class="file">sql_checker.py</span>
 │   │
-│   ├── models/
-│   │   ├── model.gguf              # File del modello locale
-│   │   └── tokenizer.model
+│   ├── <span class="folder">models/</span>
+│   │   ├── <span class="file">model.gguf</span>              <span class="comment"># File del modello locale</span>
+│   │   └── <span class="file">tokenizer.model</span>
 │   │
-│   ├── utils/
-│   │   ├── sandbox_runner.py
-│   │   ├── diff_utils.py
-│   │   ├── file_ops.py
-│   │   └── logging_utils.py
+│   ├── <span class="folder">utils/</span>
+│   │   ├── <span class="file">sandbox_runner.py</span>
+│   │   ├── <span class="file">diff_utils.py</span>
+│   │   ├── <span class="file">file_ops.py</span>
+│   │   └── <span class="file">logging_utils.py</span>
 │   │
-│   └── tests/
-│       ├── test_api.py
-│       └── test_checkers.py
+│   └── <span class="folder">tests/</span>
+│       ├── <span class="file">test_api.py</span>
+│       └── <span class="file">test_checkers.py</span>
 │
-├── frontend/
-│   ├── index.html
-│   ├── main.js
-│   ├── style.css
-│   └── assets/
-│       ├── logo.svg
-│       └── icons/
+├── <span class="folder">frontend/</span>
+│   ├── <span class="file">index.html</span>
+│   ├── <span class="file">main.js</span>
+│   ├── <span class="file">style.css</span>
+│   └── <span class="folder">assets/</span>
+│       ├── <span class="file">logo.svg</span>
+│       └── <span class="folder">icons/</span>
 │
-├── data/
-│   ├── history.db
-│   ├── logs/
-│   └── cache/
+├── <span class="folder">data/</span>
+│   ├── <span class="file">history.db</span>
+│   ├── <span class="folder">logs/</span>
+│   └── <span class="folder">cache/</span>
 │
-├── scripts/
-│   ├── download_model.sh
-│   ├── build_frontend.sh
-│   └── run_server.sh
+├── <span class="folder">scripts/</span>
+│   ├── <span class="file">download_model.sh</span>
+│   ├── <span class="file">build_frontend.sh</span>
+│   └── <span class="file">run_server.sh</span>
 │
-└── docs/
-    ├── overview.md
-    ├── api_reference.md
-    ├── local_setup.md
-    ├── security_notes.md
-    └── model_guide.md
+└── <span class="folder">docs/</span>
+    ├── <span class="file">overview.md</span>
+    ├── <span class="file">api_reference.md</span>
+    ├── <span class="file">local_setup.md</span>
+    ├── <span class="file">security_notes.md</span>
+    └── <span class="file">model_guide.md</span>
 </pre>
   </div>
 </body>
