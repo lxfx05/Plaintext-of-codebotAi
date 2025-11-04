@@ -1,6 +1,5 @@
-# 📁 Offline Dev Chatbot — Project Tree View
-
-```plaintext
+## Tree view of Chatbot 
+```
 offline-dev-chatbot/
 ├── README.md                       # Descrizione generale e setup
 ├── LICENSE                         # Licenza del progetto
@@ -83,3 +82,22 @@ offline-dev-chatbot/
     ├── LOCAL_SETUP.md              # Installazione offline
     ├── SECURITY_NOTES.md           # Linee guida sicurezza
     └── MODEL_GUIDE.md              # Guida ai modelli compatibili
+```
+
+## 💡 Have an Idea?
+
+If you have an idea to improve **Offline Dev Chatbot** —  
+whether it’s a new feature, optimization, or language support — feel free to contribute!
+
+You can:
+1. Open an **Issue** with your proposal or bug report.  
+2. Fork the repository and submit a **Pull Request**.  
+3. Discuss ideas in the **Discussions** tab if enabled.
+
+Please include:
+- a short description of the idea,
+- the motivation (why it helps the project),
+- optional implementation hints or examples.
+
+Together, we can make this offline assistant even smarter 🚀
+Tree
