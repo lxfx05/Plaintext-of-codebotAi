@@ -43,8 +43,7 @@ You can use this as a reference for building your own offline AI tools or as a U
 
 ```
 Plaintext-of-codebotAi/
-├── index.html        # Main HTML page with tabbed interface
-├── style.css         # Optional: extracted styles (currently inline)
+├── index.html        # Main HTML page GitHub tabbed interface
 ├── README.md         # This file
 └── (GitHub Pages enabled)
 ```
