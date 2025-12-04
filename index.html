@@ -1,4 +1,5 @@
-<DOCTYPE lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,13 +11,13 @@
       font-family: "JetBrains Mono", monospace;
       margin: 0;
       padding: 0;
-}
-.tabs {
+    }
+    .tabs {
       display: flex;
       background-color: #1e293b;
       border-bottom: 2px solid #334155;
-}
-.tab {
+    }
+    .tab {
       flex: 1;
       padding: 12px;
       text-align: center;
@@ -24,181 +25,146 @@
       color: #cbd5e1;
       border-right: 1px solid #334155;
       transition: background 0.3s;
-}
-.tab:hover {
+    }
+    .tab:hover {
       background-color: #334155;
-}
-.tab.active {
+    }
+    .tab.active {
       background-color: #0f172a;
       color: #60a5fa;
       font-weight: bold;
-}
-.content {
+    }
+    .content {
       padding: 16px;
-}
-.box {
+    }
+    .box {
       background-color: #1e293b;
       border-radius: 8px;
       padding: 12px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
       overflow-x: auto;
-}
+      display: none; /* Hide by default */
+    }
+    .box.active {
+      display: block; /* Show active box */
+    }
     h1 {
       color: #60a5fa;
       font-size: 18px;
       margin-bottom: 12px;
       text-align: center;
-}
+    }
     pre {
       color: #cbd5e1;
       font-size: 13px;
       line-height: 1.5;
       white-space: pre;
       margin: 0;
-}
-.folder { color: #7dd3fc;}
-.file { color: #f1f5f9;}
-.comment { color: #64748b; font-style: italic;}
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    .folder { color: #7dd3fc; }
+    .file { color: #f1f5f9; }
+    .comment { color: #64748b; font-style: italic; }
   </style>
 </head>
 <body>
+
   <div class="tabs">
-    <div class="tab active" onclick="showTab('idea1')">Idea 1</div>
-    <div class="tab" onclick="showTab('idea2')">Idea 2</div>
+    <div class="tab active" onclick="showTab('Idea')">Idea</div>
+    <div class="tab" onclick="showTab('Another')">Another Tab</div>
   </div>
 
   <div class="content">
-    <div id="idea1" class="box">
-      <h1>🧠 Idea 1 — CodeBot Project Overview</h1>
-<pre>
+    <div id="Idea" class="box active">
+      <h1>📁 Full Tree View</h1>
+      <pre>
 Project Goals:
 - Explain code, detect errors, fix them
 - Generate code from prompt
 - Fully offline, no API keys
-
-TecStackck:
-Frontendnd: HTML + JS
-- Backend: Python
-- AI Model: Code Llama / StarCoder / GPT-J
-- Libraries: Flask, Transformers
-
-      Offline Chatbot
-  
-|── frontend/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-├── backend/
-│   ├── app.py
-│   ├── model_handler.py
-│   └── utils.py
-├── models/
-│   └── (local AI models)
-├── prompts/
-│   ├── explain.txt
-│   ├── fix.txt
-│   └── generate.txt
-├── README.md
-└── config/
-    └── settings.json
-</pre>
-    </div>
-
-    <div id="idea2" class="box" style="display:none;">
-      <h1>📁 Idea 2 — Full Tree View</h1>
-            <pre>
-        Project Goals:
-- Explain code, detect errors, fix them
-- Generate code from prompt
-- Fully offline, no API keys
-- Frontendnd Helper  
+- Frontend Helper  
 - Backend: Python
 - AI Model: Code Llama / StarCoder
-        
-        Offline Chatbot 
-        
-|── README.md                       # General description and setup guide
-├── LICENSE                         # Project license
-├── .gitignore                      # Files and folders excluded from Git
-├── requirements.txt                # Python dependencies (FastAPI, llama-cpp, etc.)
-├── Dockerfile                      # Offline container build
-├── setup.sh                        # Quick setup script
+
+Offline Chatbot 
+
+|── README.md
+├── LICENSE
+├── .gitignore
+├── requirements.txt
+├── Dockerfile
+├── setup.sh
 │
-├── backend/                        # Main backend in Python (FastAPI)
-│   ├── app.py                      # API server entry point (Mode1, Mode2)
-│   ├── config.py                   # Global configurations
-│   ├── local_llm.py                # Wrapper for the local LLM model
-│   │
-│   ├── prompts/                    # Predefined prompts for the LLM
-│   │   ├── system_prompt.txt       # Base system prompt
+├── backend/
+│   ├── app.py
+│   ├── config.py
+│   ├── local_llm.py
+│   ├── prompts/
+│   │   ├── system_prompt.txt
 │   │   └── templates/
-│   │       ├── clarify_prompt.txt  # Prompt for clarification requests
-│   │       ├── generator_prompt.txt# Prompt for code/project generation
-│   │       └── code_explainer_prompt.txt # Prompt for code explanations
-│   │
-│   ├── code_check/                 # Code verification modules (Mode 1)
-│   │   ├── __init__.py
-│   │   ├── python_checker.py       # Python analysis (AST, flake8)
-│   │   ├── java_checker.py         # Java compilation and syntax analysis
-│   │   ├── cpp_checker.py          # g++ -fsyntax-only validation
-│   │   ├── js_checker.py           # Local ESLint via Node
-│   │   ├── go_checker.py           # go vet / go fmt
-│   │   └── sql_checker.py          # sqlparse or sqlite3 parser
-│   │
-│   ├── models/                     # Directory for local LLM models
-│   │   ├── README.txt              # Instructions on where to place model weights
-│   │   ├── model.gguf              # Model file (Llama, Phi, Mistral, etc.)
-│   │   └── tokenizer.model         # Compatible tokenizer
-│   │
-│   ├── utils/                      # Utility modules
-│   │   ├── sandbox_runner.py       # Optional sandbox for safe code execution
-│   │   ├── diff_utils.py           # Patch/fix generator
-│   │   ├── file_ops.py             # Temporary file handling
-│   │   └── logging_utils.py        # Centralized logger
-│   │
-│   └── tests/                      # Automated backend tests
+│   │       ├── clarify_prompt.txt
+│   │       ├── generator_prompt.txt
+│   │       └── code_explainer_prompt.txt
+│   ├── code_check/
+│   │   ├── python_checker.py
+│   │   ├── java_checker.py
+│   │   ├── cpp_checker.py
+│   │   ├── js_checker.py
+│   │   ├── go_checker.py
+│   │   └── sql_checker.py
+│   ├── models/
+│   │   ├── README.txt
+│   │   ├── model.gguf
+│   │   └── tokenizer.model
+│   ├── utils/
+│   │   ├── sandbox_runner.py
+│   │   ├── diff_utils.py
+│   │   ├── file_ops.py
+│   │   └── logging_utils.py
+│   └── tests/
 │       ├── test_api.py
 │       ├── test_checkers.py
 │       └── test_llm.py
-│
-├── frontend/                       # Local frontend (HTML + CSS + JS)
-│   ├── index.html                  # Main ChatGPT-style UI
-│   ├── main.js                     # Chat/API logic
-│   ├── style.css                   # Dark mode theme
-│   │
-│   ├── assets/                     # Graphic resources
+├── frontend/
+│   ├── index.html
+│   ├── main.js
+│   ├── style.css
+│   ├── assets/
 │   │   ├── logo.svg
 │   │   └── icons/
 │   │       ├── send.svg
 │   │       ├── code.svg
 │   │       └── terminal.svg
-│   │
-│   └── components/                 # Modular UI components
-│       ├── chat_ui.html            # Chat layout
-│       ├── code_result.html        # Code checker result view
-│       └── project_viewer.html     # Generated project file viewer
-│
-├── data/                           # Local data (fully offline)
-│   ├── history.db                  # SQLite chat/code history
+│   └── components/
+│       ├── chat_ui.html
+│       ├── code_result.html
+│       └── project_viewer.html
+├── data/
+│   ├── history.db
 │   ├── logs/
 │   │   ├── app.log
 │   │   └── error.log
 │   └── cache/
-│       └── temp_code/              # Temporary files generated by checkers
-│
-├── scripts/                        # Support scripts
-│   ├── download_model.sh           # Download LLM weights
-│   ├── build_frontend.sh           # Build Tailwind CSS
-│   ├── run_server.sh               # Run backend + frontend
-│   └── sandbox_test.sh             # Security testing
-│
-└── docs/                           # Technical documentation
-    ├── SYSTEM_OVERVIEW.md          # Architecture and components
-    ├── API_REFERENCE.md            # Endpoint details (/mode1, /mode2)
-    ├── LOCAL_SETUP.md              # Offline setup instructions
-    ├── SECURITY_NOTES.md           # Security guidelines
-    └── MODEL_GUIDE.md              # Guide for compatible LLM models
-        
+│       └── temp_code/
+├── scripts/
+│   ├── download_model.sh
+│   ├── build_frontend.sh
+│   ├── run_server.sh
+│   └── sandbox_test.sh
+└── docs/
+    ├── SYSTEM_OVERVIEW.md
+    ├── API_REFERENCE.md
+    ├── LOCAL_SETUP.md
+    ├── SECURITY_NOTES.md
+    └── MODEL_GUIDE.md
+      </pre>
+    </div>
+
+    <div id="Another" class="box">
+      <h1>📁 Another Tab Content</h1>
+      <pre>
+This is a placeholder for your second tab content.
       </pre>
     </div>
   </div>
@@ -206,10 +172,13 @@ Frontendnd: HTML + JS
   <script>
     function showTab(tabId) {
       document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-      document.querySelectorAll('.box').forEach(box => box.style.display = 'none');
-      document.getElementById(tabId).style.display = 'block';
+      document.querySelectorAll('.box').forEach(box => box.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
       document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
-}
+    }
+
+    // Show the first tab by default
+    document.addEventListener('DOMContentLoaded', () => showTab('Idea'));
   </script>
 </body>
 </html>
