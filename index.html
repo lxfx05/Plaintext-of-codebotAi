@@ -69,12 +69,6 @@
   </style>
 </head>
 <body>
-
-  <div class="tabs">
-    <div class="tab active" onclick="showTab('Idea')">Idea</div>
-    <div class="tab" onclick="showTab('Another')">Another Tab</div>
-  </div>
-
   <div class="content">
     <div id="Idea" class="box active">
       <h1>📁 Full Tree View</h1>
@@ -160,25 +154,7 @@ Offline Chatbot
     └── MODEL_GUIDE.md
       </pre>
     </div>
-
-    <div id="Another" class="box">
-      <h1>📁 Another Tab Content</h1>
-      <pre>
-This is a placeholder for your second tab content.
-      </pre>
-    </div>
-  </div>
-
-  <script>
-    function showTab(tabId) {
-      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-      document.querySelectorAll('.box').forEach(box => box.classList.remove('active'));
-      document.getElementById(tabId).classList.add('active');
-      document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
-    }
-
-    // Show the first tab by default
-    document.addEventListener('DOMContentLoaded', () => showTab('Idea'));
   </script>
+  </div>
 </body>
 </html>
